@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Төрсөн өдрийн мэнд, миний хайр!</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f0, #ffd9e6);
+            text-align: center;
+            color: #800040;
+        }
+
+        header {
+            padding: 50px;
+            font-size: 2.5em;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Gallery */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            position: relative;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery img {
+            width: 400px;
+            height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.5s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .buttons {
+            margin: 15px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 0 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff66a3;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: #ff3385;
+        }
+
+        .message {
+            font-size: 1.5em;
+            margin: 30px;
+            animation: fadeIn 3s ease-in;
+        }
+
+        /* Small heart animation */
+        .heart {
+            color: red;
+            font-size: 2em;
+            animation: heartBeat 1s infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Video styling */
+        .video-container {
+            margin: 30px auto;
+            max-width: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>🎉 Төрсөн өдрийн мэнд, миний хайр! <span class="heart">❤️</span></header>
+
+    <!-- Video Section -->
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="your-video.mp4" type="video/mp4">
+            Таны хөтөч видео-г дэмжихгүй байна.
+        </video>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+        <img id="galleryImage" src="image1.jpg" alt="Зураг 1">
+    </div>
+
+    <div class="buttons">
+        <button onclick="prevImage()">⟵ Өмнөх</button>
+        <button onclick="nextImage()">Дараах</button>
+    </div>
+
+    <div class="message">
+        "Таны инээмсэглэл миний өдөр бүхнийг гэрэлтүүлдэг."
+    </div>
+
+    <script>
+        const images = ["image1.jpg", "image2.jpg", "image3.jpg"]; // Та өөрийн зургуудыг нэмнэ
+        let currentIndex = 0;
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("galleryImage").src = images[currentIndex];
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById("galleryImage").src = images[currentIndex];
+        }
+    </script>
+
+</body>
+</html>
